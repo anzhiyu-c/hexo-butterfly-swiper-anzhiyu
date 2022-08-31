@@ -1,0 +1,40 @@
+.recent-post-item.swiper_container_card(style='height: auto;width: 100%')
+  if randomenable
+    #random
+      #random-banner
+        canvas#peoplecanvas
+      a#random-hover(style='width:100%;height:auto;', href='javascript:toRandomPost()', rel='external nofollow noreferrer', one-link-mark='yes')
+        i.fa.fa-paper-plane(style='margin-left:10px')
+        div(style='margin-left:10px') 随便逛逛→
+  //- 文章容器
+  #swiper_container.blog-slider.swiper-container-fade.swiper-container-horizontal
+    .blog-slider__wrp.swiper-wrapper(style='transition-duration: 0ms;')
+      //- 文章卡片
+      if pjaxenable
+        each item in swiper_list
+          .blog-slider__item.swiper-slide(style='width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;')
+            a.blog-slider__img(onclick=`pjax.loadUrl("` + item.path + `");` href='javascript:void(0);'    alt='')
+              img(width='48' height='48'  src=item.cover alt='' onerror=`this.src=` + error_img + `; this.onerror = null;`)
+            .blog-slider__content
+              if (timemode === 'updated' )
+                span.blog-slider__code= item.updated.format('YYYY-MM-DD')
+              else
+                span.blog-slider__code= item.date.format('YYYY-MM-DD')
+              a.blog-slider__title(onclick=`pjax.loadUrl("` + item.path + `");` href='javascript:void(0);'   alt='')= item.title
+              .blog-slider__text= item.description ? item.description : default_descr
+              a.blog-slider__button(onclick=`pjax.loadUrl("` + item.path + `");` href='javascript:void(0);'    alt='') 详情       
+      else
+        each item in swiper_list
+          .blog-slider__item.swiper-slide(style='width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;')
+            a.blog-slider__img(href=item.path  alt='')
+              img(width='48' height='48'  src=item.cover alt='' onerror=`this.src=` + error_img + `; this.onerror = null;`)
+            .blog-slider__content
+              if (timemode === 'updated' )
+                span.blog-slider__code= item.updated.format('YYYY-MM-DD')
+              else
+                span.blog-slider__code= item.date.format('YYYY-MM-DD')
+              a.blog-slider__title(href=item.path alt='')= item.title
+              .blog-slider__text= item.description ? item.description : default_descr
+              a.blog-slider__button(href=item.path  alt='') 详情   
+    //- 轮播图组件 
+    .blog-slider__pagination.swiper-pagination-clickable.swiper-pagination-bullets

@@ -1,0 +1,34 @@
+{
+  "name": "hexo-butterfly-swiper-anzhiyu",
+  "version": "1.0.1",
+  "description": "A Slideshow  plugin for theme-butterfly based on swiper",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint ."
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "files": [
+    "lib/",
+    "index.js"
+  ],
+  "keywords": [
+    "hexo",
+    "renderer",
+    "swiper",
+    "Slideshow",
+    "butterfly",
+    "theme-butterfly",
+    "plugins"
+  ],
+  "author": "anzhiyu",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "pug": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anzhiyu-c/hexo-butterfly-swiper-anzhiyu.git"
+  }
+}
