@@ -8,6 +8,7 @@ div#swiper_container {
   background:rgba(255, 255, 255, 0);
   width: 57%;
   padding: 0;
+  overflow: initial;
 }
 .blog-slider {
   width:100%;
